@@ -1,0 +1,10 @@
+{
+  "projects": {
+    "default": "netflix-gpt-bb82f",
+    "build": "netflix-gpt-bb82f",
+    "pr": "netflix-gpt-bb82f",
+    "netflixGpt": "netflix-gpt-bb82f"
+  },
+  "targets": {},
+  "etags": {}
+}
