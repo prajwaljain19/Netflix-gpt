@@ -1,24 +1,62 @@
 import { useState, useRef } from "react";
 import Header from "./Header";
 import { cheakValidData } from "../utils/validate";
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
-  const [errorMessage, seterrorMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
   const handleButtonClick = () => {
-
     //validation
     console.log(email.current.value);
     console.log(password.current.value);
 
     const message = cheakValidData(email.current.value, password.current.value);
-    seterrorMessage(message);
-     
+    setErrorMessage(message);
+    if (message) return;
+
+    // sign In sign Up Logic
+
+    if (!isSignInForm) {
+      //SignIn From
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + "-" + errorMessage);
+        });
+    } else {
+      //signUp From
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + "-" + errorMessage);
+
+        });
+    }
   };
 
   const ToggleSignInFrom = () => {
@@ -61,7 +99,7 @@ const Login = () => {
             placeholder="Password"
             className="p-4 my-4 w-full rounded-lg bg-gray-500"
           />
-          <p className="text-red-500 font-bold ">{ errorMessage }</p>
+          <p className="text-red-500 font-bold ">{errorMessage}</p>
           <button
             className="p-4 my-6 bg-red-700 w-full rounded-lg"
             onClick={handleButtonClick}
