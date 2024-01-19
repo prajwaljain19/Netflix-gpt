@@ -12,6 +12,10 @@
 - Firebase Setup
 - Deploying our app to production
 - Create SignUp User Account
+- Implement Sign In User Api
+- Created Redux Store With userSlice
+- Implemented Sign out
+- Update Profile
 
 # features
 - Login/Sign Up
@@ -27,4 +31,9 @@
 - NetflixGPT 
     - Search Bar
     - Movie Suggestions
+
+
+
+    - added eventlistner to dispatch the componet inside appstore
+    - 
     
