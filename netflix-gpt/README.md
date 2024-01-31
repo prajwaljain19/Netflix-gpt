@@ -44,3 +44,16 @@
     - added eventlistner to dispatch the componet inside appstore
     - 
     
+
+
+
+{ 
+    container1 :
+- movies trailer
+- information
+
+    container2: 
+- list of the movie in horizontal way
+- movie card
+- movie information
+}
