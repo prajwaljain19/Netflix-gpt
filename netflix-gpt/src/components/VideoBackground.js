@@ -1,33 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
 
 const VideoBackground = ({ movieId }) => {
-
-  const[trailerId, settrailerId] = useState(null); 
-
+  const [trailerId, setTrailerId] = useState(null);
 
   const getMovieVideo = async () => {
-    const response = await fetch(
-      "https://api.themoviedb.org/3/movie/572802/videos?language=en-US",
-      API_OPTIONS
-    );
-    const data = await response.json();
+    try {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`,
+        API_OPTIONS
+      );
+      const data = await response.json();
 
-    console.log(data);
+      const filterData = data.results.filter((video) => video.type === "Trailer");
+      const trailer = filterData.length ? filterData[0] : data.results[0];
 
-    const filterData = data.results.filter((video) => video.type === "Trailer");
-    const trailer = filterData.length ? filterData[0] : data.results[0];
-    console.log(trailer);
-    settrailerId(trailer.key);
+      console.log(trailer);
+
+      setTrailerId(trailer.key);
+    } catch (error) {
+      console.error("Error fetching movie video:", error);
+    }
   };
 
   useEffect(() => {
     getMovieVideo();
-  }, []);
+  
+  }, [movieId]);
+
   return (
-    <div>
+    <div className="w-screen">
       <iframe 
-        src= {"https://www.youtube.com/embed/" + trailerId}
+      className="w-screen aspect-video"
+        src={"https://www.youtube.com/embed/" + trailerId}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       ></iframe>

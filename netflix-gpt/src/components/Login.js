@@ -19,8 +19,6 @@ const Login = () => {
 
   const handleButtonClick = () => {
     //validation
-    console.log(email.current.value);
-    console.log(password.current.value);
 
     const message = cheakValidData(email.current.value, password.current.value);
     setErrorMessage(message);

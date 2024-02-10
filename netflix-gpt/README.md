@@ -22,6 +22,8 @@
 - Add hardcoded values to the constants file
 - Resgister TMDB API and create and an app and get access token
 - Get Data from TMDB now playing movie list API
+- Creating custom hooks for trailer video
+- Video Background
 
 
 # features
