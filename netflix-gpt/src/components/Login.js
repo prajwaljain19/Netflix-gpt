@@ -143,7 +143,7 @@ const Login = () => {
               : "Alreadt Registered? Sign In Now..."}
           </p>
           <p className=" text-sm text-gray-500 ">
-            Sign in is protected by Google reCAPTCHA to ensure you’re not a bot.
+            Sign in is protected by Google reCAPTCHA to ensure you're not a bot.
           </p>
         </div>
       </form>

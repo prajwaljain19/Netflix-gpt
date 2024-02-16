@@ -24,6 +24,9 @@
 - Get Data from TMDB now playing movie list API
 - Creating custom hooks for trailer video
 - Video Background
+- Embedded the youtube video and make it autoplay and mute
+- Build Secondary Component
+- Creating Movie Suggestion List
 
 
 # features
