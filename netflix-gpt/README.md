@@ -27,6 +27,7 @@
 - Embedded the youtube video and make it autoplay and mute
 - Build Secondary Component
 - Creating Movie Suggestion List
+- GPT Search Feature
 
 
 # features
