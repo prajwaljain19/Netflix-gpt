@@ -52,6 +52,12 @@ const Header = () => {
     <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
       <img className="w-40" src={LOGO} alt="logo" />
 
+      <select className="mx-2 my-2 rounded-lg">
+      <option lang="en">English</option>
+      <option lang="hindi">Hindi</option>
+      <option lang="spanish">Spanish</option>
+      </select>
+
       <div className="flex p-2">
         <button
           className="px-3 py-2 mx-4 my-2 text-white bg-blue-900 rounded-lg"
