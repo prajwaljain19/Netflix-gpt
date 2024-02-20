@@ -17,7 +17,7 @@ const VideoBackground = ({ movieId }) => {
       );
       const trailer = filterData.length ? filterData[0] : data.results[0];
 
-      console.log(trailer);
+      
 
       setTrailerId(trailer.key);
     } catch (error) {
