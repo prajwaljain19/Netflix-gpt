@@ -28,6 +28,10 @@
 - Build Secondary Component
 - Creating Movie Suggestion List
 - GPT Search Feature
+- GPT Search Page
+- GPT Search Bar
+- Multi-language feature in the app
+
 
 
 # features
